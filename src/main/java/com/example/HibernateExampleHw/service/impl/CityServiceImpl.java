@@ -40,4 +40,10 @@ public class CityServiceImpl implements CityService {
         return null;
     }
 
+    @Override
+    public void delete(long id) {
+        cityRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("City", "id", id));
+        cityRepository.deleteById(id);
+    }
+
 }
