@@ -10,4 +10,6 @@ public interface CityService {
     List<City> getAll();
 
     City get(long id);
+
+    City update(City City, long id);
 }

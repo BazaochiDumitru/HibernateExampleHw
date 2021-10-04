@@ -32,4 +32,12 @@ public class CityServiceImpl implements CityService {
         return cityRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("City", "id", id));
     }
 
+    @Override
+    public City update(City city, long id) {
+        City existingCity = cityRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("City", "id", id));
+        existingCity.setName(city.getName());
+        cityRepository.save(existingCity);
+        return null;
+    }
+
 }
